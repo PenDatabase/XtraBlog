@@ -1,0 +1,23 @@
+{% extends "posts/main.html" %}
+
+
+
+
+{% block body %}
+
+<div class="container-fluid">
+    <h2 class="pt-2 tm-color-primary tm-post-title">{{post.title}}</h2>
+    <small>
+        {% if user.is_authenticated %}
+        <a href="{% url "edit_post" post.slug %}">-- (Edit)</a>
+        <a href="{% url "delete_post" post.slug %}">(Delete)</a>
+        {% endif %}
+    </small>
+    <p class="tm-mb-40">June 16, 2020 posted by @{{post.author.username}}</p>
+    <p>
+        {{post.body}}
+    </p>
+    <span class="d-block text-right tm-color-primary">Creative . Design . Business</span>
+</div>
+
+{% endblock body %}

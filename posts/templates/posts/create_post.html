@@ -1,0 +1,18 @@
+{% extends "posts/main.html" %}
+
+{% block title %}| Create New Post{% endblock title %}
+
+
+{% block body %}
+     
+    <h1>Create New Post</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <button type="submit" class="btn btn-success">Publish</button>
+    </form>
+
+{% endblock body %}
